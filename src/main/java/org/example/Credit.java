@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 
-public class Credit implements Cloneable
+public class Credit implements cloneable
 {
     Integer cardno;
     String name;
