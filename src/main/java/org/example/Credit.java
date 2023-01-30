@@ -1,9 +1,13 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class Credit implements cloneable
+public class Credit implements Cloneable
 {
+    Logger l=Logger.getLogger("tyler");
+
     Integer cardno;
     String name;
     Integer date;
@@ -18,15 +22,15 @@ public class Credit implements cloneable
         this.cardnum=a;
 
     }
-    void eq()
+    boolean eq()
     {
-        System.out.println(cardno.equals(cardnum));
+        return (cardno.equals(cardnum));
     }
     void show()
     {
-        System.out.println(name);
-        System.out.println(cardnum);
-        System.out.println(date);
+        l.log(Level.INFO, () ->"your name:" + name);
+        l.log(Level.INFO, () ->"your card number:"+ cardnum);
+        l.log(Level.INFO, () ->"expiry date:"+date);
     }
     Credit cr()
     {
@@ -36,20 +40,26 @@ public class Credit implements cloneable
         }
         catch (CloneNotSupportedException e)
         {
-            System.out.println("cloned");
+            l.info("cloned");
             return this;
         }
     }
-
-
     public static void main(String[] args)
     {
         Scanner s=new Scanner(System.in);
+        Logger l=Logger.getLogger("tyler");
         System.out.println("enter the card num:");
         Integer a=s.nextInt();
         Credit r=new Credit(a);
-        Credit m=(Credit) r.cr();
+        Credit m= r.cr();
         m.eq();
+        if(m.eq())
+        {
+            l.info("credit card num is same");
+        }
+        else {
+            l.info("credit card num is not same");
+        }
         m.show();
 
     }
