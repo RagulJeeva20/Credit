@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Credit implements Cloneable
+public class Credit implements cloneable
 {
     Logger l=Logger.getLogger("tyler");
 
@@ -48,7 +48,7 @@ public class Credit implements Cloneable
     {
         Scanner s=new Scanner(System.in);
         Logger l=Logger.getLogger("tyler");
-        System.out.println("enter the card num:");
+        l.info("enter the card num:");
         Integer a=s.nextInt();
         Credit r=new Credit(a);
         Credit m= r.cr();
